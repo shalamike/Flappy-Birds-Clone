@@ -32,4 +32,8 @@ public class Bird {
 
         velocity.scl(1/dt);
     }
+
+    public void jump(){
+        velocity.y = 250;
+    }
 }
