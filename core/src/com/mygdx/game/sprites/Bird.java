@@ -15,12 +15,10 @@ public class Bird {
 
     private static final float GRAVITY = -10;
     private Vector3 position;
-
     private Texture bird;
 
     public Bird(float x, float y){
         position = new Vector3(x, y, 0);
-
 
         bird = new Texture("bird.png");
     }
