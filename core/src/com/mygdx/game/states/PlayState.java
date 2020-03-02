@@ -21,6 +21,7 @@ public class PlayState extends State {
 
     @Override
     public void update(float dt) {
+        handleInput();
         bird.update(dt);
     }
 
