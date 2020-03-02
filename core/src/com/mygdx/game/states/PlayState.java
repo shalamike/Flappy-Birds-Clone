@@ -1,5 +1,6 @@
 package com.mygdx.game.states;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.MyGdxGame;
@@ -16,6 +17,8 @@ public class PlayState extends State {
 
     @Override
     public void handleInput() {
+        if(Gdx.input.justTouched())
+            bird.jump();
     }
 
     @Override
