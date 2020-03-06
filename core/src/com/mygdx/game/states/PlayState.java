@@ -3,14 +3,24 @@ package com.mygdx.game.states;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.sprites.Bird;
 import com.mygdx.game.sprites.Tube;
 
+import static com.mygdx.game.sprites.Tube.TUBE_WIDTH;
+
 public class PlayState extends State {
+
+
     private Texture background;
     private Bird bird;
     private Tube Tube;
+
+    //creating an array of Tubes that is currently empty
+    private Array<Tube> tubes;
+
+
 
     public PlayState(GameStateManager gsm) {
         super(gsm);

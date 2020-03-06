@@ -22,6 +22,8 @@ public class Tube {
     public Vector3 getPosBottomTube() {
         return posBottomTube;
     }
+    //width of the tube determined from measuring the png
+    public static final float TUBE_WIDTH = 52;
 
     private static final float RANDRANGE = 150;
     private static final float GAP = 100;
@@ -38,5 +40,10 @@ public class Tube {
 
         posTopTube = new Vector3(x, rand.nextFloat()*RANDRANGE + GAP + LOWESTOPENING, 0);
         posBottomTube = new Vector3(x, posTopTube.y - GAP - BottomTube.getHeight(), 0);
+    }
+
+    public void reposition(float x){
+        posTopTube.set(x, rand.nextFloat()*RANDRANGE + GAP + LOWESTOPENING, 0);
+        posBottomTube.set(x, posTopTube.y - GAP - BottomTube.getHeight(), 0);
     }
 }

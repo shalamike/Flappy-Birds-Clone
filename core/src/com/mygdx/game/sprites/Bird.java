@@ -27,9 +27,9 @@ public class Bird {
 
     public void update(float dt){
         if (position.y > 0) {
-            velocity.add(0, GRAVITY, 0);
+            velocity.add(100 * dt, GRAVITY, 0);
             velocity.scl(dt);
-            position.add(0, velocity.y, 0);
+            position.add(100 * dt, velocity.y, 0);
         }
         else if(position.y < 0){
             position.y = 0;
