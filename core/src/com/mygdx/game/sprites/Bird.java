@@ -14,13 +14,13 @@ public class Bird {
     }
 
     private static final float GRAVITY = -10;
-    private static final int BIRD_MOVEMENT = 5;
+    private static final int BIRD_MOVEMENT = 100;
     private Vector3 position;
     private Vector3 velocity;
     private Texture bird;
 
     public Bird(float x, float y){
-        position = new Vector3(x, y, 0);
+        position = new Vector3(x , y, 0);
         velocity = new Vector3(0,0,0);
 
         bird = new Texture("bird.png");
@@ -28,9 +28,9 @@ public class Bird {
 
     public void update(float dt){
         if (position.y > 0) {
-            velocity.add(BIRD_MOVEMENT , GRAVITY, 0);
+            velocity.add(0 , GRAVITY, 0);
             velocity.scl(dt);
-            position.add(BIRD_MOVEMENT, velocity.y, 0);
+            position.add(BIRD_MOVEMENT * dt, velocity.y, 0);
         }
         else if(position.y < 0){
             position.y = 0;
