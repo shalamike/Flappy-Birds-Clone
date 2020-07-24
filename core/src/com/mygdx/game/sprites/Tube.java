@@ -34,15 +34,19 @@ public class Tube {
 
 
     public Tube(float x){
+        //getting the image for the top and bottom tubes
         TopTube = new Texture("toptube.png");
         BottomTube = new Texture("bottomtube.png");
+        // creating a random number for randomising positions of the tubes
         rand = new Random();
 
+        // randomising the position of the top tube and bottom tubes
         posTopTube = new Vector3(x, rand.nextFloat()*RANDRANGE + GAP + LOWESTOPENING, 0);
         posBottomTube = new Vector3(x, posTopTube.y - GAP - BottomTube.getHeight(), 0);
     }
 
     public void reposition(float x){
+        // randomly repositioning the top and bottom tubes
         posTopTube.set(x, rand.nextFloat()*RANDRANGE + GAP + LOWESTOPENING, 0);
         posBottomTube.set(x, posTopTube.y - GAP - BottomTube.getHeight(), 0);
     }
