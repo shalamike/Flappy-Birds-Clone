@@ -54,6 +54,8 @@ public class PlayState extends State {
             if(cam.position.x - (cam.viewportWidth/2) > tube.getPosTopTube().x + tube.getTopTube().getWidth()){
                 tube.reposition(tube.getPosTopTube().x + ((tube.TUBE_WIDTH + TUBE_SPACING) * TUBE_COUNT));
             }
+            if(tube.colides((bird.getBoundary())))
+                gsm.set(new MenuState(gsm));
         }
         cam.update();
     }
@@ -73,6 +75,7 @@ public class PlayState extends State {
 
     @Override
     public void dispose() {
+        background.dispose();
 
     }
 }

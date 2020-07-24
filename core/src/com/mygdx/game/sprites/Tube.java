@@ -61,7 +61,12 @@ public class Tube {
         boundsBot.setPosition(posBottomTube.x, posBottomTube.y);
     }
 
-    public boolean collision(Rectangle user){
+    public boolean colides(Rectangle user){
         return user.overlaps(boundsTop) || user.overlaps(boundsBot);
+    }
+
+    public void dispose(){
+        TopTube.dispose();
+        BottomTube.dispose();
     }
 }
