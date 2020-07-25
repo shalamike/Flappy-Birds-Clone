@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -19,6 +20,8 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	private GameStateManager gsm;
 	private SpriteBatch batch;
+	// adding sounds and music to the game
+	private Music music;
 
 	@Override
 	public void create () {
@@ -27,6 +30,11 @@ public class MyGdxGame extends ApplicationAdapter {
 		gsm = new GameStateManager();
 		gsm.push(new MenuState(gsm));
 //		img = new Texture("badlogic.jpg");
+		// adding the music
+		music = Gdx.audio.newMusic(Gdx.files.internal("music.mp3"));
+		music.setLooping(true);
+		music.setVolume(0.1f);
+		music.play();
 	}
 
 	@Override
@@ -45,5 +53,6 @@ public class MyGdxGame extends ApplicationAdapter {
 	public void dispose (){
 		batch.dispose();
 		img.dispose();
+		music.dispose();
 	}
 }
