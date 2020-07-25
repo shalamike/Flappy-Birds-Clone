@@ -2,6 +2,7 @@ package com.mygdx.game.sprites;
 
 import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 
@@ -10,8 +11,8 @@ public class Bird {
         return position;
     }
 
-    public Texture getTexture() {
-        return bird;
+    public TextureRegion getTexture() {
+        return birdAnimation.getFrame();
     }
 
     private static final float GRAVITY = -15;
@@ -20,17 +21,24 @@ public class Bird {
     private Vector3 velocity;
     private Texture bird;
     private Rectangle boundary;
+    private Animation birdAnimation;
+    private Texture texture;
 
     public Bird(float x, float y){
         position = new Vector3(x , y, 0);
         velocity = new Vector3(0,0,0);
         // getting the image for the bird
-        bird = new Texture("bird.png");
+        //bird = new Texture("bird.png");
+        //setting the animation textures for the bird
+        texture = new Texture("birdanimation.png");
+        birdAnimation = new Animation(new TextureRegion(texture), 3, 0.5f);
         // setting the collision boundary for the bird
-        boundary = new Rectangle(x, y, bird.getWidth(), bird.getHeight());
+        boundary = new Rectangle(x, y, texture.getWidth()/3, texture.getHeight()/3);
     }
 
     public void update(float dt){
+        //updating the current frame the bird is animating
+        birdAnimation.update(dt);
         //updating the position of the bird
         if (position.y > 0) {
             velocity.add(0 , GRAVITY, 0);
@@ -52,5 +60,5 @@ public class Bird {
 
     public Rectangle getBoundary() { return boundary; }
 
-    public void dispose(){bird.dispose();}
+    public void dispose(){texture.dispose();}
 }
