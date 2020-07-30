@@ -7,10 +7,10 @@ import java.util.*
 
 class Tube(x: Float) {
 
-    public val topTube: Texture
-    public val bottomTube: Texture
-    public val posTopTube: Vector3
-    public val posBottomTube: Vector3
+    val topTube: Texture
+    val bottomTube: Texture
+    val posTopTube: Vector3
+    val posBottomTube: Vector3
     private val rand: Random
 
     // rectangles for collision detection

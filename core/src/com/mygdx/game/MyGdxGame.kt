@@ -16,6 +16,7 @@ class MyGdxGame : ApplicationAdapter() {
 
     // adding sounds and music to the game
     private var music: Music? = null
+
     override fun create() {
         Gdx.gl.glClearColor(1f, 0f, 0f, 1f)
         batch = SpriteBatch()
@@ -23,10 +24,16 @@ class MyGdxGame : ApplicationAdapter() {
         gsm!!.push(MenuState(gsm))
         //		img = new Texture("badlogic.jpg");
         // adding the music
+
+
         music = Gdx.audio.newMusic(Gdx.files.internal("music.mp3"))
-        music.setLooping(true)
-        music.setVolume(0.1f)
-        music.play()
+        /*in kotlin you have to use safe casting in order to get the music to play*/
+        music?.let{music -> music.isLooping  }
+        music?.let{music -> music.volume = 0.1f }
+        music?.let{music -> music.play()  }
+//        music.setLooping(true)
+//        music.setVolume(0.1f)
+//        music.play()
     }
 
     override fun render() {
